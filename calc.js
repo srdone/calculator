@@ -1,6 +1,6 @@
 var Calc = function(start) {
   //based off example seen in Javascript Patterns Training Video on PluralSight.com
-  var runningTotal = start || 0;
+  var runningTotal = start;
 
   this.add = function (toAdd) {
     runningTotal += toAdd;
@@ -20,9 +20,6 @@ var Calc = function(start) {
   };
   this.equals = function () {
     return runningTotal;
-  };
-  this.reset = function () {
-    runningTotal = 0;
   };
 
 };

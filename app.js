@@ -1,7 +1,7 @@
 $(document).ready( function () {
 
   var resultDisplay = $('#display');
-  var calculator = new Calc();
+  var calculator;
   var currentAction;
   
   
@@ -10,12 +10,15 @@ $(document).ready( function () {
     if ($(this).hasClass('action')) {
       currentAction = $(this).data('action');
       if (currentAction === 'clear') {
-        currentAction = undefined;
-        resultDisplay.text('0');
-        calculator.reset();
+        performAction();
+      } else {
+        if (!calculator) {
+          calculator = new Calc(+resultDisplay.text()); 
+        }
+        console.log(calculator.equals());
       }
     } else if ($(this).hasClass('number')) {
-      var num = $(this).data('number');
+      var num = +$(this).data('number');
       resultDisplay.text(num);
       if (currentAction) {
         performAction(num);
@@ -52,7 +55,6 @@ $(document).ready( function () {
       case 'clear':
         resultDisplay.text('0');
         currentAction = undefined;
-        calculator.reset();
       default:
         break;
     }
