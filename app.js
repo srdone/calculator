@@ -55,6 +55,7 @@ $(document).ready( function () {
       case 'clear':
         resultDisplay.text('0');
         currentAction = undefined;
+        calculator = undefined;
       default:
         break;
     }
