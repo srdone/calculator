@@ -3,7 +3,7 @@ var Calc = function(start) {
   var runningTotal = start || 0;
 
   this.add = function (toAdd) {
-    runningTotal += x;
+    runningTotal += toAdd;
     return this;
   };
   this.subtract = function (toSubtract) {
@@ -19,8 +19,10 @@ var Calc = function(start) {
     return this;
   };
   this.equals = function () {
-    runningTotal = 0; //reset calculator
     return runningTotal;
+  };
+  this.reset = function () {
+    runningTotal = 0;
   };
 
 };
